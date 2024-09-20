@@ -126,6 +126,7 @@ MonoBehaviour:
   Edmon_RigidBody: {fileID: 0}
   Edmon_Speed: 0
   Edmon_SprintSpeed: 0
+  Edmon_TurnSpeed: 0
   Edmon_Animator: {fileID: 0}
   HorizontalMove: 0
   VerticalMove: 0
@@ -178,4 +179,4 @@ CapsuleCollider:
   m_Radius: 0.23405886
   m_Height: 1.9782014
   m_Direction: 1
-  m_Center: {x: -0.0035915375, y: -0.4891007, z: -0.12060118}
+  m_Center: {x: -0.0035915375, y: 0.83, z: -0.12060118}
