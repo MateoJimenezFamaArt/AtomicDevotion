@@ -9,14 +9,12 @@ public class Edmon_Controller : MonoBehaviour
     [SerializeField] private float Edmon_Speed;
     [SerializeField] float Edmon_SprintSpeed;
     [SerializeField] float Edmon_TurnSpeed;
-    [SerializeField] private Animator Edmon_Animator;
-    [SerializeField] float HorizontalMove;
-    [SerializeField] float VerticalMove;
+    [SerializeField] private float HorizontalMove;
+    [SerializeField] private float VerticalMove;
 
     // Start is called before the first frame update
     void Start()   
     {
-        Edmon_Animator = GetComponent<Animator>();
         Edmon_RigidBody = GetComponent<Rigidbody>();
         Edmon_Speed = 2.0f;
         Edmon_SprintSpeed = 1.0f;
@@ -40,11 +38,6 @@ public class Edmon_Controller : MonoBehaviour
                 CharacterWalking();
             }
         }
-        else if (HorizontalMove == 0 || VerticalMove == 0)
-        {
-            AnimatorWalking(false);
-            AnimatorRunning(false);
-        }
     }
 
     void FixedUpdate()
@@ -61,25 +54,13 @@ public class Edmon_Controller : MonoBehaviour
 
     void CharacterWalking()
     {
-        Edmon_SprintSpeed = 1.0f;
-        AnimatorRunning(false);
-        AnimatorWalking(true);                
+        Edmon_SprintSpeed = 1.0f;               
     }
 
     void CharacterRunning()
     {
         Edmon_SprintSpeed = 2.0f;
-        AnimatorRunning(true);
-        AnimatorWalking(false);
     }
 
-    void AnimatorRunning(bool Running)
-    {
-        Edmon_Animator.SetBool("IsRunning", Running);     
-    }
 
-    void AnimatorWalking(bool Walking)
-    {
-        Edmon_Animator.SetBool("IsWalking", Walking);       
-    } 
 }
