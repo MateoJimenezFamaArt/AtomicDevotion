@@ -11,6 +11,7 @@ public class Animation_Edmon : MonoBehaviour
     [SerializeField] private float VerticalMove;
 
     [SerializeField] AnimatorStates animatorStates = AnimatorStates.Idle;
+    
 
     [SerializeField] private enum AnimatorStates
     {
@@ -80,6 +81,12 @@ public class Animation_Edmon : MonoBehaviour
     private void ChangeCurrentStateAccessMethod(AnimatorStates newState)
     {   
         animatorStates = newState;
+    }
+
+    //ACCESS METHODS
+    public string GetCurrentState()
+    {
+        return animatorStates.ToString();
     }
 
 

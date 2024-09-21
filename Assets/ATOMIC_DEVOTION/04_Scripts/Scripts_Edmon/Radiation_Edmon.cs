@@ -52,5 +52,15 @@ public class Radiation_Edmon : MonoBehaviour
        
     }
 
+    public bool GetCoroutineState()
+    {
+        return CoroutineActive;
+    }
+
+    public float GetRadiationLevel()
+    {
+        return Edmon_RadiationLevel;
+    }
+
     
 }
