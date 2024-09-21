@@ -23,6 +23,6 @@ public class Debug_Mutant : MonoBehaviour
 
     void GetDebugValue()
     {
-        DebugText.text = $"Current_Target:{movement_Mutant1.GetCurrentTarget()}\n Collision: {radiation_Mutant1.GetCollision()}";
+        DebugText.text = $"Current_Target:{movement_Mutant1.GetCurrentTarget()}\n Collision: {radiation_Mutant1.GetCollision()}\n Current State: {movement_Mutant1.GetCurrentState()}";
     }
 }

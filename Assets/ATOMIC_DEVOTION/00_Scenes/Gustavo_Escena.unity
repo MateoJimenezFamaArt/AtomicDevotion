@@ -249,6 +249,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &267511786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2554795074895699604, guid: 98449fc28df48d84a8f28a091b83a4a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1150979379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &267511792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267511786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a421f8047e9a94c936afff95b3ba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &267511793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267511786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2602fc0d210cd604e9138f9b99504e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Edmon_RadiationLevel: 0
 --- !u!1 &679945051
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +820,7 @@ PrefabInstance:
     - target: {fileID: 2554795074895699604, guid: 98449fc28df48d84a8f28a091b83a4a5,
         type: 3}
       propertyPath: m_Name
-      value: Prefab_Edom
+      value: Prefab_Edmon
       objectReference: {fileID: 0}
     - target: {fileID: 2554795074895699604, guid: 98449fc28df48d84a8f28a091b83a4a5,
         type: 3}
@@ -799,7 +830,7 @@ PrefabInstance:
     - target: {fileID: 2900217250502083630, guid: 98449fc28df48d84a8f28a091b83a4a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.98
+      value: -18.09
       objectReference: {fileID: 0}
     - target: {fileID: 2900217250502083630, guid: 98449fc28df48d84a8f28a091b83a4a5,
         type: 3}
@@ -854,7 +885,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2554795074895699604, guid: 98449fc28df48d84a8f28a091b83a4a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267511792}
+    - targetCorrespondingSourceObject: {fileID: 2554795074895699604, guid: 98449fc28df48d84a8f28a091b83a4a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267511793}
   m_SourcePrefab: {fileID: 100100000, guid: 98449fc28df48d84a8f28a091b83a4a5, type: 3}
 --- !u!1 &1613019298
 GameObject:
