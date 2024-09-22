@@ -7,7 +7,7 @@ using System;
 public class Animation_Mutant1 : MonoBehaviour
 {   
 
-    [SerializeField] private Animator Edmon_Animator;
+    [SerializeField] private Animator Mutant_Animator;
     [SerializeField] private AnimationsManager animationsManager;
     [SerializeField] AnimatorStates animatorStates = AnimatorStates.Idle;
     
@@ -24,7 +24,7 @@ public class Animation_Mutant1 : MonoBehaviour
     void Start()   
     {
         animationsManager = GameObject.FindWithTag("AnimationsManager").GetComponent<AnimationsManager>();
-        Edmon_Animator = GetComponent<Animator>();
+        Mutant_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,18 +41,18 @@ public class Animation_Mutant1 : MonoBehaviour
         {
             case AnimatorStates.Walking:
             {
-                animationsManager.ChangeState("Walking", Edmon_Animator);
+                animationsManager.ChangeState("Walking", Mutant_Animator);
                 break;              
             }
             case AnimatorStates.Running:
             {
-                animationsManager.ChangeState("Running", Edmon_Animator);
+                animationsManager.ChangeState("Running", Mutant_Animator);
                 break;              
             }
 
             case AnimatorStates.Idle:
             {
-                animationsManager.ChangeState("Idle", Edmon_Animator);
+                animationsManager.ChangeState("Idle", Mutant_Animator);
                 break;              
             }
         }

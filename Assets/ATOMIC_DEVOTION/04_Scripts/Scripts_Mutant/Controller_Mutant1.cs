@@ -17,6 +17,8 @@ public class Controller_Mutant1 : MonoBehaviour
     [SerializeField] private GameObject Edmon_Player;
 
     private EnemyStates EnemyState = EnemyStates.Patroling;
+
+    private Animation_Mutant1 animation_Mutant1;
     // Start is called before the first frame update
     private enum EnemyStates
     {
@@ -30,6 +32,7 @@ public class Controller_Mutant1 : MonoBehaviour
         Speed_Mutant1 = 2.0f;
         RB_Mutant1 = GetComponent<Rigidbody>();
         Edmon_Player = GameObject.FindWithTag("Player");
+        animation_Mutant1 = GetComponent<Animation_Mutant1>();
 
     }
 
@@ -52,6 +55,7 @@ public class Controller_Mutant1 : MonoBehaviour
             
                 Target = PatrolPoints[CurrentTarget].transform.position;
                 MovementMutant(Target);
+                animation_Mutant1.ChangeCurrentStateAccessMethod("Walking");
                 
                 
 
@@ -66,6 +70,8 @@ public class Controller_Mutant1 : MonoBehaviour
                 }
                 Target = Edmon_Player.transform.position;
                 MovementMutant(Target);
+
+                animation_Mutant1.ChangeCurrentStateAccessMethod("Running");
 
                 break;
             }
