@@ -11,7 +11,7 @@ public class Edmon_Controller : MonoBehaviour
     [SerializeField] float Edmon_TurnSpeed;
     [SerializeField] private float HorizontalMove;
     [SerializeField] private float VerticalMove;
-
+    private Animation_Edmon animation_Edmon;
     // Start is called before the first frame update
     void Start()   
     {
@@ -19,6 +19,7 @@ public class Edmon_Controller : MonoBehaviour
         Edmon_Speed = 2.0f;
         Edmon_SprintSpeed = 1.0f;
         Edmon_TurnSpeed = 12.0f;
+        animation_Edmon = GetComponent<Animation_Edmon>();
     }
 
     // Update is called once per frame
@@ -27,16 +28,28 @@ public class Edmon_Controller : MonoBehaviour
         HorizontalMove = Input.GetAxis("Horizontal");
         VerticalMove = Input.GetAxis("Vertical");
 
+        CheckMovement();
+        
+    }
+
+    private void CheckMovement()
+    {
         if (HorizontalMove !=0 || VerticalMove != 0)
         {            
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 CharacterRunning();
+                animation_Edmon.ChangeCurrentStateAccessMethod("Running");
             }
             else
             {
                 CharacterWalking();
+                animation_Edmon.ChangeCurrentStateAccessMethod("Walking");
             }
+        }
+        else
+        {
+            animation_Edmon.ChangeCurrentStateAccessMethod("Idle");
         }
     }
 
@@ -52,12 +65,12 @@ public class Edmon_Controller : MonoBehaviour
         Edmon_RigidBody.MoveRotation(Rotation);
     }
 
-    void CharacterWalking()
+    private void CharacterWalking()
     {
         Edmon_SprintSpeed = 1.0f;               
     }
 
-    void CharacterRunning()
+    private void CharacterRunning()
     {
         Edmon_SprintSpeed = 2.0f;
     }

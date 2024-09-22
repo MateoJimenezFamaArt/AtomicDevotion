@@ -4,14 +4,11 @@ using UnityEngine;
 using System;
 
 
-public class Animation_Edmon : MonoBehaviour
+public class Animation_Mutant1 : MonoBehaviour
 {   
 
     [SerializeField] private Animator Edmon_Animator;
-    [SerializeField] private float HorizontalMove;
-    [SerializeField] private float VerticalMove;
     [SerializeField] private AnimationsManager animationsManager;
-
     [SerializeField] AnimatorStates animatorStates = AnimatorStates.Idle;
     
 

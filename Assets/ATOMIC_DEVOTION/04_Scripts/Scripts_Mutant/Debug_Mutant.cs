@@ -6,12 +6,12 @@ using TMPro;
 public class Debug_Mutant : MonoBehaviour
 {
     [SerializeField] private TMP_Text DebugText;
-    [SerializeField] private Movement_Mutant1 movement_Mutant1;
+    [SerializeField] private Controller_Mutant1 controller_Mutant1;
     [SerializeField] private Radiation_Mutant1 radiation_Mutant1;
     // Start is called before the first frame update
     void Start()
     {
-        movement_Mutant1 = GetComponent<Movement_Mutant1>();
+        controller_Mutant1 = GetComponent<Controller_Mutant1>();
         radiation_Mutant1 = GetComponent<Radiation_Mutant1>();
     }
 
@@ -23,6 +23,6 @@ public class Debug_Mutant : MonoBehaviour
 
     void GetDebugValue()
     {
-        DebugText.text = $"Current_Target:{movement_Mutant1.GetCurrentTarget()}\n Collision: {radiation_Mutant1.GetCollision()}\n Current State: {movement_Mutant1.GetCurrentState()}";
+        DebugText.text = $"Current_Target:{controller_Mutant1.GetCurrentTarget()}\n Collision: {radiation_Mutant1.GetCollision()}\n Current State: {controller_Mutant1.GetCurrentState()}";
     }
 }

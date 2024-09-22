@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Edmon_Walking : MonoBehaviour
+public class Animation_Walking : MonoBehaviour, I_Animation
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,11 @@ public class Edmon_Walking : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeState(Animator Animator)
+    {
+        Animator.SetBool("IsRunning", false);
+        Animator.SetBool("IsWalking", true);   
     }
 }

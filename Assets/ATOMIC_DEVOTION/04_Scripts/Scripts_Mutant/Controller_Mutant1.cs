@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class Movement_Mutant1 : MonoBehaviour
+public class Controller_Mutant1 : MonoBehaviour
 {
     [SerializeField] private Rigidbody RB_Mutant1;
     [SerializeField] private float Speed_Mutant1;
@@ -38,16 +38,6 @@ public class Movement_Mutant1 : MonoBehaviour
         PatrolMutant();
     }
 
-    private void MovementMutant(Vector3 target)
-    {
-        RB_Mutant1.MovePosition(Vector3.MoveTowards(transform.position, Target, 1 * Speed_Mutant1 * ChaseSpeed_Mutant1 * Time.deltaTime));
-                
-
-                if (Vector3.Distance(transform.position, Target) < 3.0f)
-                {
-                    CurrentTarget++;
-                }
-    }
 
     private void PatrolMutant()
     {
@@ -81,6 +71,17 @@ public class Movement_Mutant1 : MonoBehaviour
             }
         }
         
+    }
+
+    private void MovementMutant(Vector3 target)
+    {
+        RB_Mutant1.MovePosition(Vector3.MoveTowards(transform.position, Target, 1 * Speed_Mutant1 * ChaseSpeed_Mutant1 * Time.deltaTime));
+                
+
+                if (Vector3.Distance(transform.position, Target) < 3.0f)
+                {
+                    CurrentTarget++;
+                }
     }
 
     // Metodos de Acceso
