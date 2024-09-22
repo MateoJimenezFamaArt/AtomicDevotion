@@ -19,6 +19,7 @@ public class Animation_Idle : MonoBehaviour, I_Animation
     public void ChangeState(Animator Animator)
     {
         Animator.SetBool("IsRunning", false);
-        Animator.SetBool("IsWalking", false);   
+        Animator.SetBool("IsWalking", false);  
+        Animator.SetBool("IsInteracting", false);  
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, I_interactable
 {
+    private Animation_Edmon animation_Edmon;
+    private bool Collision;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animation_Edmon = GameObject.FindWithTag("Player").GetComponent<Animation_Edmon>();
     }
 
     // Update is called once per frame
@@ -20,13 +22,32 @@ public class InteractableObject : MonoBehaviour, I_interactable
     {
         if (other.CompareTag( "Player" ))
         {
-            Debug.Log("xd");
-            Interact();
+            if(!Collision)
+            {
+                Collision = true;
+
+                Interact();
+            }
+            
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {   
+        if (other.CompareTag( "Player" ))
+        {
+            Collision = false;
+        }
+
     }
 
     public void Interact()
     {
-        
+        animation_Edmon.ChangeCurrentStateAccessMethod("Interacting");
+    }
+
+    public bool GetCollisionDebug()
+    {
+        return Collision;
     }
 }

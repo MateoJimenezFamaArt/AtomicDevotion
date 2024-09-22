@@ -7,6 +7,8 @@ public class AnimationsManager : MonoBehaviour
     private Animation_Running animation_Running;
     private Animation_Walking animation_Walking;
     private Animation_Idle animation_Idle;
+    private Animation_Interacting animation_Interacting;
+
 
     [SerializeField] private string currentState;
    
@@ -16,6 +18,7 @@ public class AnimationsManager : MonoBehaviour
         animation_Running = GetComponent<Animation_Running>();
         animation_Walking = GetComponent<Animation_Walking>();
         animation_Idle = GetComponent<Animation_Idle>();
+        animation_Interacting = GetComponent<Animation_Interacting>();
     }
 
     // Update is called once per frame
@@ -39,8 +42,13 @@ public class AnimationsManager : MonoBehaviour
             case "Idle":
             animation_Idle.ChangeState(animator);
             break;
+
+            case "Interacting":
+            animation_Interacting.ChangeState(animator);
+            break;
         }
+    }
     
         
-    } 
-}
+} 
+

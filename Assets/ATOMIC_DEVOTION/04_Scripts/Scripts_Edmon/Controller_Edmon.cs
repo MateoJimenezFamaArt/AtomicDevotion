@@ -12,6 +12,8 @@ public class Edmon_Controller : MonoBehaviour
     [SerializeField] private float HorizontalMove;
     [SerializeField] private float VerticalMove;
     private Animation_Edmon animation_Edmon;
+
+    private bool Interacting;
     // Start is called before the first frame update
     void Start()   
     {
@@ -20,15 +22,23 @@ public class Edmon_Controller : MonoBehaviour
         Edmon_SprintSpeed = 1.0f;
         Edmon_TurnSpeed = 12.0f;
         animation_Edmon = GetComponent<Animation_Edmon>();
+        Interacting = false;
     }
 
     // Update is called once per frame
     void Update()
     {        
+        
         HorizontalMove = Input.GetAxis("Horizontal");
         VerticalMove = Input.GetAxis("Vertical");
+        
+        if(!Interacting)
+        {
+            CheckMovement();
+        }
+        
 
-        CheckMovement();
+
         
     }
 
@@ -54,9 +64,17 @@ public class Edmon_Controller : MonoBehaviour
     }
 
     void FixedUpdate()
-    {   
+    {    
+        Movement();
+
+    }
+
+    private void Movement()
+{
+    if (!Interacting) // Solo se mueve si no está interactuando
+    {
         Vector3 Movement = new Vector3(HorizontalMove, 0, VerticalMove);
-        
+
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, Movement, Edmon_TurnSpeed * Time.deltaTime, 0f);
 
         Quaternion Rotation = Quaternion.LookRotation(desiredForward);
@@ -64,6 +82,12 @@ public class Edmon_Controller : MonoBehaviour
         Edmon_RigidBody.MovePosition(transform.position + Movement * Edmon_Speed * Edmon_SprintSpeed * Time.deltaTime);
         Edmon_RigidBody.MoveRotation(Rotation);
     }
+    else
+    {
+        // No moverse mientras está interactuando
+    }
+}
+
 
     private void CharacterWalking()
     {
@@ -75,5 +99,12 @@ public class Edmon_Controller : MonoBehaviour
         Edmon_SprintSpeed = 2.0f;
     }
 
+
+    // ACCESS METHODS
+
+    public void SetInteract(bool interacting)
+    {
+        Interacting = interacting;
+    }
 
 }

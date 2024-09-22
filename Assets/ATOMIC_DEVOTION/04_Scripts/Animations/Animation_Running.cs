@@ -10,6 +10,7 @@ public class Animation_Running : MonoBehaviour, I_Animation
     {
         Animator.SetBool("IsRunning", true);
         Animator.SetBool("IsWalking", false);  
+        Animator.SetBool("IsInteracting", false); 
         
     } 
 }
