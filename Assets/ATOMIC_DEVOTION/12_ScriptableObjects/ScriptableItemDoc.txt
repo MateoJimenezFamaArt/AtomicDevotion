@@ -1,0 +1,5 @@
+How to create Objects:
+
+1. Create a prefab that has the items script if it needs one and its mesh
+2. Left click > Create > Inventory > Item
+3. Assign the apropiate prefab and the item name
