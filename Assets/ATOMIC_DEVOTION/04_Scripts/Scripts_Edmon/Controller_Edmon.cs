@@ -17,11 +17,11 @@ public class Edmon_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()   
     {
-        Edmon_RigidBody = GetComponent<Rigidbody>();
+       // Edmon_RigidBody = GetComponent<Rigidbody>();
         Edmon_Speed = 2.0f;
         Edmon_SprintSpeed = 1.0f;
         Edmon_TurnSpeed = 12.0f;
-        animation_Edmon = GetComponent<Animation_Edmon>();
+        //animation_Edmon = GetComponent<Animation_Edmon>();
         Interacting = false;
     }
 
