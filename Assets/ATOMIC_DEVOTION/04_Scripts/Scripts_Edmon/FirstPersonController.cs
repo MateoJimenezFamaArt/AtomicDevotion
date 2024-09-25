@@ -12,10 +12,15 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float verticalRotationLimit = 85.0f;
 
+    [Header("Interaction Settings")]
+    [SerializeField] public BoxCollider interactionZone; // Reference to the interaction zone collider
+
     private Rigidbody rb;
     private Animation_Edmon animation_Edmon;
     private float verticalRotation = 0f;
     private bool Interacting;
+
+
 
     private void Start()
     {
@@ -32,6 +37,18 @@ public class FirstPersonController : MonoBehaviour
             playerCamera = Camera.main; // Assume the main camera is the player camera
         }
 
+        //If no animator controll asigend asign it
+        if (animation_Edmon == null)
+        {
+            animation_Edmon = GetComponent<Animation_Edmon>();
+        }
+
+        // Ensure the interaction zone collider is initially disabled
+        if (interactionZone != null)
+        {
+            interactionZone.enabled = false;
+        }
+
         Interacting = false;
     }
 
@@ -39,6 +56,7 @@ public class FirstPersonController : MonoBehaviour
     {
         LookAround();
         HandleMovement();
+        HandleInteraction();
     }
 
     private void LookAround()
@@ -80,6 +98,21 @@ public class FirstPersonController : MonoBehaviour
         CheckMovement(movement);
 
         }
+    }
+
+    private void HandleInteraction()
+    {
+        if (!Interacting)
+        {
+            
+            if (Input.GetKey(KeyCode.F))
+            {
+                Debug.Log("Empezamos interaccion");
+                animation_Edmon.Interacting();
+                
+            }
+        }
+
     }
 
     private void CheckMovement(Vector3 movement)
