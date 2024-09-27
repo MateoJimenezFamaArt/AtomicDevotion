@@ -15,7 +15,7 @@ public class FirstPersonController : MonoBehaviour
     [Header("Interaction Settings")]
     [SerializeField] public BoxCollider interactionZone; // Reference to the interaction zone collider
 
-    private Rigidbody rb;
+    private Rigidbody Edmon_RigidBody;
     private Animation_Edmon animation_Edmon;
     private float verticalRotation = 0f;
     private bool Interacting;
@@ -25,7 +25,7 @@ public class FirstPersonController : MonoBehaviour
     private void Start()
     {
         // Assign the Rigidbody & animator component at runtime
-        rb = GetComponent<Rigidbody>();
+        Edmon_RigidBody = GetComponent<Rigidbody>();
         animation_Edmon = GetComponent<Animation_Edmon>();
 
         // Lock the cursor for mouse control
@@ -93,7 +93,7 @@ public class FirstPersonController : MonoBehaviour
         float speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
 
         // Move the player
-        rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
+        Edmon_RigidBody.MovePosition(transform.position + movement * speed * Time.deltaTime);
 
         CheckMovement(movement);
 
