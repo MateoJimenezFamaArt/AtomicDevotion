@@ -80,13 +80,13 @@ public class Animation_Edmon : MonoBehaviour
         
     }
 
-    public IEnumerator Interacting()
+    private IEnumerator Interacting()
     {
         Debug.Log("Empezamos interaccion");
         edmon_Controller.SetInteract(true); // Desactiva el movimiento
         animationsManager.ChangeState("Interacting", Edmon_Animator);
         //edmon_Controller.interactionZone.enabled = true;
-        yield return new WaitForSeconds(2.5f); // Espera a que termine la animación
+        yield return new WaitForSeconds(2f); // Espera a que termine la animación
         edmon_Controller.SetInteract(false); // Vuelve a activar el movimiento
         //edmon_Controller.interactionZone.enabled = false;
         animatorStates = AnimatorStates.Idle; // Cambia el estado a Idle

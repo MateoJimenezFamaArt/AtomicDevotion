@@ -12,8 +12,8 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float verticalRotationLimit = 85.0f;
 
-    [Header("Interaction Settings")]
-    [SerializeField] public BoxCollider interactionZone; // Reference to the interaction zone collider
+    /*[Header("Interaction Settings")]
+    [SerializeField] public BoxCollider interactionZone; // Reference to the interaction zone collider*/
 
     private Rigidbody Edmon_RigidBody;
     private Animation_Edmon animation_Edmon;
@@ -42,21 +42,16 @@ public class FirstPersonController : MonoBehaviour
         {
             animation_Edmon = GetComponent<Animation_Edmon>();
         }
-
-        // Ensure the interaction zone collider is initially disabled
-        if (interactionZone != null)
-        {
-            interactionZone.enabled = false;
-        }
-
         Interacting = false;
     }
+
+    
 
     private void Update()
     {
         LookAround();
         HandleMovement();
-        HandleInteraction();
+        
     }
 
     private void LookAround()
@@ -73,6 +68,8 @@ public class FirstPersonController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
         transform.Rotate(Vector3.up * mouseX); // Rotate the player object around the Y axis
     }
+
+
 
     private void HandleMovement()
     {
@@ -100,20 +97,7 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-    private void HandleInteraction()
-    {
-        if (!Interacting)
-        {
-            
-            if (Input.GetKey(KeyCode.F))
-            {
-                Debug.Log("Empezamos interaccion");
-                animation_Edmon.Interacting();
-                
-            }
-        }
 
-    }
 
     private void CheckMovement(Vector3 movement)
     {
@@ -141,5 +125,10 @@ public class FirstPersonController : MonoBehaviour
     public void SetInteract(bool interacting)
     {
         Interacting = interacting;
+    }
+
+    public bool GetInteract()
+    {
+        return Interacting;
     }
 }
