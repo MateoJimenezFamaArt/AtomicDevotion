@@ -17,7 +17,7 @@ public class Animation_Edmon : MonoBehaviour
     private Coroutine InteractingCoroutine;
     private bool CoroutineActive = false;
 
-    private Edmon_Controller edmon_Controller;
+    private FirstPersonController edmon_Controller;
     
 
 
@@ -34,7 +34,7 @@ public class Animation_Edmon : MonoBehaviour
     {
         animationsManager = GameObject.FindWithTag("AnimationsManager").GetComponent<AnimationsManager>();
         Edmon_Animator = GetComponent<Animator>();
-        edmon_Controller = GetComponent<Edmon_Controller>();
+        edmon_Controller = GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
@@ -82,10 +82,13 @@ public class Animation_Edmon : MonoBehaviour
 
     private IEnumerator Interacting()
     {
+        Debug.Log("Empezamos interaccion");
         edmon_Controller.SetInteract(true); // Desactiva el movimiento
         animationsManager.ChangeState("Interacting", Edmon_Animator);
-        yield return new WaitForSeconds(2.5f); // Espera a que termine la animación
+        //edmon_Controller.interactionZone.enabled = true;
+        yield return new WaitForSeconds(2f); // Espera a que termine la animación
         edmon_Controller.SetInteract(false); // Vuelve a activar el movimiento
+        //edmon_Controller.interactionZone.enabled = false;
         animatorStates = AnimatorStates.Idle; // Cambia el estado a Idle
         CoroutineActive = false;
         StopCoroutine(InteractingCoroutine);

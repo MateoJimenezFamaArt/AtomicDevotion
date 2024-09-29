@@ -17,7 +17,7 @@ public class Debug_Interactable : MonoBehaviour
     void Update()
     {
        
-        DebugText.text = $"Player Interacting: {interactableObject.GetCollisionDebug()}";
+        //DebugText.text = $"Player Interacting: {interactableObject.GetCollisionDebug()}";
     
     }
 }
