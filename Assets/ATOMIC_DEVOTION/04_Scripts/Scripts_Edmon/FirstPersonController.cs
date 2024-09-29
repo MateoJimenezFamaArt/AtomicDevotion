@@ -12,15 +12,10 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float verticalRotationLimit = 85.0f;
 
-    /*[Header("Interaction Settings")]
-    [SerializeField] public BoxCollider interactionZone; // Reference to the interaction zone collider*/
-
-    [SerializeField]private Rigidbody Edmon_RigidBody;
-    [SerializeField]private Animation_Edmon animation_Edmon;
-    [SerializeField]private float verticalRotation = 0f;
-   [SerializeField] private bool Interacting;
-
-
+    [SerializeField] private Rigidbody Edmon_RigidBody;
+    [SerializeField] private Animation_Edmon animation_Edmon;
+    [SerializeField] private float verticalRotation = 0f;
+    [SerializeField] private bool Interacting;
 
     private void Start()
     {
@@ -37,17 +32,13 @@ public class FirstPersonController : MonoBehaviour
             playerCamera = Camera.main; // Assume the main camera is the player camera
         }
 
-
         Interacting = false;
     }
-
-    
 
     private void Update()
     {
         LookAround();
         HandleMovement();
-        
     }
 
     private void LookAround()
@@ -65,35 +56,36 @@ public class FirstPersonController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX); // Rotate the player object around the Y axis
     }
 
-
-
     private void HandleMovement()
     {
-        if(!Interacting)
+        if (!Interacting)
         {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+            float moveX = Input.GetAxis("Horizontal");
+            float moveZ = Input.GetAxis("Vertical");
 
-        // Create a movement vector based on camera orientation
-        Vector3 movement = new Vector3(moveX, 0, moveZ);
-        movement = playerCamera.transform.TransformDirection(movement);
-        movement.y = 0; // Prevent moving up/down
+            // Create a movement vector relative to the player's local space (not the camera's orientation)
+            Vector3 movement = new Vector3(moveX, 0, moveZ);
 
+            // Convert movement vector to world space but only apply horizontal plane (XZ movement)
+            movement = transform.TransformDirection(movement);
+            movement.y = 0; // Flatten to ensure movement remains on the XZ plane
+
+            // Normalize the movement to avoid diagonal speed increases
             if (movement.magnitude > 1)
-                movement.Normalize(); // Normalize if moving diagonally
+            {
+                movement.Normalize();
+            }
 
-        // Determine speed based on sprinting
-        float speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
+            // Determine speed based on sprinting
+            float speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
 
-        // Move the player
-        Edmon_RigidBody.MovePosition(transform.position + movement * speed * Time.deltaTime);
+            // Move the player with normalized speed
+            Edmon_RigidBody.MovePosition(transform.position + movement * speed * Time.deltaTime);
 
-        CheckMovement(movement);
-
+            // Check if the movement affects animation state
+            CheckMovement(movement);
         }
     }
-
-
 
     private void CheckMovement(Vector3 movement)
     {
@@ -101,12 +93,10 @@ public class FirstPersonController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                
                 animation_Edmon.ChangeCurrentStateAccessMethod("Running");
             }
             else
             {
-                
                 animation_Edmon.ChangeCurrentStateAccessMethod("Walking");
             }
         }
@@ -116,7 +106,7 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-        // ACCESS METHODS
+    // ACCESS METHODS
 
     public void SetInteract(bool interacting)
     {
