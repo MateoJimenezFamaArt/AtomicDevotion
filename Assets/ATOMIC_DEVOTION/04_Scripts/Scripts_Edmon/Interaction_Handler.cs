@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Interaction_Handler : MonoBehaviour
 {
-    private bool Interacting; /*el valor de esta variable provendra de la clase FirstPersonController, que gestiona el estado 
+    [SerializeField]private bool Interacting; /*el valor de esta variable provendra de la clase FirstPersonController, que gestiona el estado 
     de interacción del jugador y se asigna a través del método SetInteract() en la clase Animation_Edmon.*/
 
-    private bool CanInteract;
-    private FirstPersonController edmon_Controller;
-    private Animation_Edmon animation_Edmon;
-    private InteractableObject interactableObject;
+   [SerializeField] private bool CanInteract;
+    [SerializeField]private FirstPersonController edmon_Controller;
+    [SerializeField]private Animation_Edmon animation_Edmon;
+    [SerializeField]private InteractableObject interactableObject;
 
     void Start()
     {
         Interacting = false;
-        edmon_Controller = GetComponent<FirstPersonController>();
-        animation_Edmon = GetComponent<Animation_Edmon>();
+        edmon_Controller = this.GetComponent<FirstPersonController>();
+        animation_Edmon = this.GetComponent<Animation_Edmon>();
     }
 
     void Update()

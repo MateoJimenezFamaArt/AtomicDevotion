@@ -15,10 +15,10 @@ public class AnimationsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animation_Running = GetComponent<Animation_Running>();
-        animation_Walking = GetComponent<Animation_Walking>();
-        animation_Idle = GetComponent<Animation_Idle>();
-        animation_Interacting = GetComponent<Animation_Interacting>();
+        animation_Running = this.GetComponent<Animation_Running>();
+        animation_Walking = this.GetComponent<Animation_Walking>();
+        animation_Idle = this.GetComponent<Animation_Idle>();
+        animation_Interacting = this.GetComponent<Animation_Interacting>();
     }
 
     // Update is called once per frame

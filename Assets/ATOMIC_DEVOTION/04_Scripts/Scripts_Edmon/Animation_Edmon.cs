@@ -14,10 +14,10 @@ public class Animation_Edmon : MonoBehaviour
 
     [SerializeField] AnimatorStates animatorStates = AnimatorStates.Idle;
 
-    private Coroutine InteractingCoroutine;
-    private bool CoroutineActive = false;
+    [SerializeField]private Coroutine InteractingCoroutine;
+    [SerializeField]private bool CoroutineActive = false;
 
-    private FirstPersonController edmon_Controller;
+    [SerializeField]private FirstPersonController edmon_Controller;
     
 
 
@@ -33,8 +33,8 @@ public class Animation_Edmon : MonoBehaviour
     void Start()   
     {
         animationsManager = GameObject.FindWithTag("AnimationsManager").GetComponent<AnimationsManager>();
-        Edmon_Animator = GetComponent<Animator>();
-        edmon_Controller = GetComponent<FirstPersonController>();
+        Edmon_Animator = this.GetComponent<Animator>();
+        edmon_Controller = this.GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
