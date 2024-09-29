@@ -33,8 +33,8 @@ public class Animation_Edmon : MonoBehaviour
     void Start()   
     {
         animationsManager = GameObject.FindWithTag("AnimationsManager").GetComponent<AnimationsManager>();
-        Edmon_Animator = GetComponent<Animator>();
-        edmon_Controller = GetComponent<FirstPersonController>();
+        Edmon_Animator = this.GetComponent<Animator>();
+        edmon_Controller = this.GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame

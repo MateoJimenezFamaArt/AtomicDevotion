@@ -15,8 +15,8 @@ public class Interaction_Handler : MonoBehaviour
     void Start()
     {
         Interacting = false;
-        edmon_Controller = GetComponent<FirstPersonController>();
-        animation_Edmon = GetComponent<Animation_Edmon>();
+        edmon_Controller = this.GetComponent<FirstPersonController>();
+        animation_Edmon = this.GetComponent<Animation_Edmon>();
     }
 
     void Update()

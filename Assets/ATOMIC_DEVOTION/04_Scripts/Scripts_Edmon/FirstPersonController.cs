@@ -25,8 +25,8 @@ public class FirstPersonController : MonoBehaviour
     private void Start()
     {
         // Assign the Rigidbody & animator component at runtime
-        Edmon_RigidBody = GetComponent<Rigidbody>();
-        animation_Edmon = GetComponent<Animation_Edmon>();
+        Edmon_RigidBody = this.GetComponent<Rigidbody>();
+        animation_Edmon = this.GetComponent<Animation_Edmon>();
 
         // Lock the cursor for mouse control
         Cursor.lockState = CursorLockMode.Locked;
@@ -37,11 +37,7 @@ public class FirstPersonController : MonoBehaviour
             playerCamera = Camera.main; // Assume the main camera is the player camera
         }
 
-        //If no animator controll asigend asign it
-        if (animation_Edmon == null)
-        {
-            animation_Edmon = GetComponent<Animation_Edmon>();
-        }
+
         Interacting = false;
     }
 
