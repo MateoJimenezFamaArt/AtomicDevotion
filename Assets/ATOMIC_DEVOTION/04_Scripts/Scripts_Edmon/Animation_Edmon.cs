@@ -14,10 +14,10 @@ public class Animation_Edmon : MonoBehaviour
 
     [SerializeField] AnimatorStates animatorStates = AnimatorStates.Idle;
 
-    private Coroutine InteractingCoroutine;
-    private bool CoroutineActive = false;
+    [SerializeField]private Coroutine InteractingCoroutine;
+    [SerializeField]private bool CoroutineActive = false;
 
-    private FirstPersonController edmon_Controller;
+    [SerializeField]private FirstPersonController edmon_Controller;
     
 
 

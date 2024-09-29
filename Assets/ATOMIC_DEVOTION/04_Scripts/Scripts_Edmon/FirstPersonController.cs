@@ -15,10 +15,10 @@ public class FirstPersonController : MonoBehaviour
     /*[Header("Interaction Settings")]
     [SerializeField] public BoxCollider interactionZone; // Reference to the interaction zone collider*/
 
-    private Rigidbody Edmon_RigidBody;
-    private Animation_Edmon animation_Edmon;
-    private float verticalRotation = 0f;
-    private bool Interacting;
+    [SerializeField]private Rigidbody Edmon_RigidBody;
+    [SerializeField]private Animation_Edmon animation_Edmon;
+    [SerializeField]private float verticalRotation = 0f;
+   [SerializeField] private bool Interacting;
 
 
 
