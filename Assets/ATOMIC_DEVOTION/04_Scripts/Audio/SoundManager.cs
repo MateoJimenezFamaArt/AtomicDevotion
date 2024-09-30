@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
+    public GameObject LocationForSounds;
 
     [System.Serializable]
     public class AudioClipInfo
@@ -39,7 +40,7 @@ public class SoundManager : MonoBehaviour
     {
         if (audioClipDictionary.TryGetValue(clipName, out AudioClip clip))
         {
-            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(clip,LocationForSounds.transform.position);
         }
         else
         {
