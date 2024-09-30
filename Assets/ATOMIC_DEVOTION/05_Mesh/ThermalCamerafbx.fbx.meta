@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 14a09319c7d6fd144a584a6bad72d7a9
+guid: e9d803b6798c3b947afb5021c202b50d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pantalla
+    second: {fileID: 2100000, guid: 789f4b735dcde4649b150fdd09d43032, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thermal_Camera
+    second: {fileID: 2100000, guid: 54b4a8b16dc067549b79eebafdf1a734, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

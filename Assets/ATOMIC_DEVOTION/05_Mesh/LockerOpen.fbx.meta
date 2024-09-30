@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 2e09811535cf7494990647c219812087
+guid: 2b33d362a9b6f9346b0a2a272d064515
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Voice_Recorder
-    second: {fileID: 2100000, guid: 5b790b98dd2683944a482c6b2bb97cd6, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
