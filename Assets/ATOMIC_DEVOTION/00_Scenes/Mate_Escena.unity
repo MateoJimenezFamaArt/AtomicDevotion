@@ -758,10 +758,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5efbc1f21055c469666f622b6efaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LocationForSounds: {fileID: 1200975523}
   audioClips:
   - clipName: Clip1
     audioClip: {fileID: 8300000, guid: 82c2f719ce3ee95418d5050882feadf1, type: 3}
   - clipName: Clip2
+    audioClip: {fileID: 8300000, guid: 55ec26543a6ba8b4b938ce092e3731a3, type: 3}
+  - clipName: FlashlightOn
+    audioClip: {fileID: 8300000, guid: 82c2f719ce3ee95418d5050882feadf1, type: 3}
+  - clipName: FlashlightOff
     audioClip: {fileID: 8300000, guid: 55ec26543a6ba8b4b938ce092e3731a3, type: 3}
 --- !u!4 &409653042
 Transform:
@@ -3157,6 +3162,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372982147070485964, guid: 6d4cffc08a7ba1742a4736b6da254c0d,
+        type: 3}
+      propertyPath: flickerDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372982147070485964, guid: 6d4cffc08a7ba1742a4736b6da254c0d,
+        type: 3}
+      propertyPath: flickerInterval
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4501154487011816768, guid: 6d4cffc08a7ba1742a4736b6da254c0d,
         type: 3}
