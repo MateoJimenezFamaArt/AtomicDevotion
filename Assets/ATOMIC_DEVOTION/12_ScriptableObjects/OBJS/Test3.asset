@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Test3
   m_EditorClassIdentifier: 
   itemName: Objeto3
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 4501154487011816768, guid: 82605ea1b4f4b134fb6821236c61d969,
+    type: 3}
+  ItemLogo: {fileID: 21300000, guid: 349c7d45b798b7a4da9940611bba48be, type: 3}

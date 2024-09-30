@@ -3,7 +3,7 @@ using UnityEngine;
 public class FlashlightController : MonoBehaviour
 {
     public Light flashlight; // Reference to the Light component
-    public bool isEquipped = false; // Boolean to check if the object is equipped
+    //public bool isEquipped = false; // Boolean to check if the object is equipped
     private bool flashlightOn = false; // To track the flashlight's state
 
     void Start()
@@ -16,7 +16,7 @@ public class FlashlightController : MonoBehaviour
 
     void Update()
     {
-        if (isEquipped && Input.GetKeyDown(KeyCode.L)) // Check if equipped and "L" key is pressed
+        if (Input.GetKeyDown(KeyCode.L)) // Check if equipped and "L" key is pressed
         {
             ToggleFlashlight();
         }
