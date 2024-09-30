@@ -12,6 +12,8 @@ public class Interaction_Handler : MonoBehaviour
     [SerializeField]private Animation_Edmon animation_Edmon;
     [SerializeField]private InteractableObject interactableObject;
 
+    [SerializeField] private Animator AninPlayerController;
+
     void Start()
     {
         Interacting = false;
@@ -30,11 +32,12 @@ public class Interaction_Handler : MonoBehaviour
     {
         if (!Interacting && CanInteract)
         {
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Empezamos interaccion");
                 interactableObject.Interact(); 
-                animation_Edmon.ChangeCurrentStateAccessMethod("Interacting");   
+                AninPlayerController.SetTrigger("interactuar");
+                //animation_Edmon.ChangeCurrentStateAccessMethod("Interacting");   
             }
         }
     }

@@ -67,8 +67,10 @@ public class Animation_Edmon : MonoBehaviour
             }
                case AnimatorStates.Interacting:
             {
+                Debug.Log("LLegamos a el estado interactuar: " + CoroutineActive);
                 if(!CoroutineActive)
                 {
+                    Debug.Log("Ya vamos a empezar la coroutine");
                     CoroutineActive = true;
                     InteractingCoroutine = StartCoroutine(Interacting());
                     
@@ -97,9 +99,11 @@ public class Animation_Edmon : MonoBehaviour
 
     public void ChangeCurrentStateAccessMethod(string newState)
     {   
+        Debug.Log("llego el nuevo estado: " + newState);
         AnimatorStates State;
         if(Enum.TryParse<AnimatorStates>(newState, out State))
         {
+            Debug.Log("se cambio el estado");
             animatorStates = State;
         }
         

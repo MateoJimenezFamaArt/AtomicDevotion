@@ -8,7 +8,7 @@ public class Animation_Interacting : MonoBehaviour, I_Animation
     {
         Animator.SetBool("IsRunning", false);
         Animator.SetBool("IsWalking", false);
-        Animator.SetBool("IsInteracting", true);  
+        Animator.SetTrigger("IsInteracting");  
     } 
 }
 

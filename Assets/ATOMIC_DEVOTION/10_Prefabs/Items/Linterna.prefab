@@ -46,8 +46,8 @@ Light:
   m_Color: {r: 1, g: 0.9104731, b: 0.7377358, a: 1}
   m_Intensity: 256
   m_Range: 8.131001
-  m_SpotAngle: 57.61947
-  m_InnerSpotAngle: 11.225174
+  m_SpotAngle: 59.86189
+  m_InnerSpotAngle: 13.467579
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -83,11 +83,11 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 8000
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 187350344232632695}
   - component: {fileID: 3372982147070485964}
   m_Layer: 0
-  m_Name: Item1
+  m_Name: Linterna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 6000624286384714541}
+  flickerInterval: 2
+  flickerDuration: 0.05
 --- !u!1001 &2412818448605062946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,22 +229,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0005945236
+      value: -0.00042759327
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.9999963
+      value: -0.00000025373663
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00042603828
+      value: -0.0005934062
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.002617734
+      value: 0.9999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
@@ -252,7 +254,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180.3
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a4b7ece76314174abd409aa9195f306,
         type: 3}
