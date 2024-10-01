@@ -16,7 +16,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<ItemData> playerInventory;
 
     [Header("Player Hand")]
-    [SerializeField] private Transform handPosition;
+    private Transform handPosition;
 
     private bool isInventoryOpen = false;
 
@@ -31,6 +31,15 @@ public class InventoryManager : MonoBehaviour
         HandleInventoryToggle();
     }
 
+    /// <summary>
+    /// Sets the hand position during runtime.
+    /// This should be called by the GameManager when the player is instantiated.
+    /// </summary>
+    /// <param name="handTransform">The player's hand transform to assign.</param>
+    public void SetHandPosition(Transform handTransform)
+    {
+        handPosition = handTransform;
+    }
     /// <summary>
     /// Handles opening and closing of the inventory UI, including pausing the game.
     /// </summary>

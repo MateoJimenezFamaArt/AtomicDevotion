@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int playerDeaths = 0; // Contador de muertes del jugador
     [SerializeField] private List<string> sceneLog; // Lista de escenas visitadas
 
+    private GameObject playerInstance;
     private void Awake()
     {
         // Singleton
@@ -64,10 +65,36 @@ public class GameManager : MonoBehaviour
     {
         return respawnPosition;
     }
-    public void RespawnPlayer() // Le dice al player para hacer respawn Ahi
+public void RespawnPlayer()
+{
+    // Instantiate player and assign the instance
+    playerInstance = Instantiate(playerPrefab, respawnPosition, Quaternion.identity);
+
+    // Find the player's camera
+    Transform playerCamera = playerInstance.transform.Find("Camera"); // Adjust the name if needed
+
+    // Now find the Hand object under the Camera
+    Transform playerHand = playerCamera?.Find("Hand"); // Adjust the name if needed
+
+    if (playerHand == null)
     {
-        Instantiate(playerPrefab, respawnPosition, Quaternion.identity); 
+        Debug.LogWarning("Hand object not found under Camera in the player prefab.");
+        return;
     }
+
+    // Get reference to the InventoryManager and assign hand position
+    InventoryManager inventoryManager = Object.FindFirstObjectByType<InventoryManager>();
+    if (inventoryManager != null)
+    {
+        inventoryManager.SetHandPosition(playerHand);
+        Debug.Log("Hand position assigned to InventoryManager.");
+    }
+    else
+    {
+        Debug.LogWarning("InventoryManager not found.");
+    }
+}
+
 
     public void AddCheckpoint(Transform checkpoint) // Agrega un transform a la lista de checkpoints
     {
