@@ -20,6 +20,10 @@ public class InventoryManager : MonoBehaviour
 
     private bool isInventoryOpen = false;
 
+    // Player camera control reference
+    private Camera playerCamera;
+    private MonoBehaviour FirstPersonController; // The script controlling the camera movement
+
     private void Start()
     {
         playerInventory = new List<ItemData>();  // Initialize player inventory

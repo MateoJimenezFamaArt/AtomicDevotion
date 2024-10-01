@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    public GameObject LocationForSounds;
+    public Transform LocationForSounds;
 
     [System.Serializable]
     public class AudioClipInfo
@@ -35,6 +35,25 @@ public class SoundManager : MonoBehaviour
             audioClipDictionary[audioClipInfo.clipName] = audioClipInfo.audioClip;
         }
     }
+
+    private void Start()
+    {
+    GameManager gameManager = Object.FindFirstObjectByType<GameManager>();
+    GameObject player = gameManager.GetPlayerInstance();
+
+    if (player != null)
+    {
+        // Do something with the player reference
+        Debug.Log("Player reference obtained: " + player.name);
+    }
+    else
+    {
+        Debug.LogWarning("No player instance found!");
+    }
+        LocationForSounds = player.transform;
+
+    }
+
 
     public void PlaySound(string clipName)
     {

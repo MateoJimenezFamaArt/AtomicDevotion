@@ -17,11 +17,16 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float verticalRotation = 0f;
     [SerializeField] private bool Interacting;
 
+    InventoryManager inventoryManager;
+
+
+    
     private void Start()
     {
         // Assign the Rigidbody & animator component at runtime
         Edmon_RigidBody = this.GetComponent<Rigidbody>();
         animation_Edmon = this.GetComponent<Animation_Edmon>();
+        inventoryManager = Object.FindFirstObjectByType<InventoryManager>(); // Store reference to InventoryManager
 
         // Lock the cursor for mouse control
         Cursor.lockState = CursorLockMode.Locked;
@@ -43,7 +48,9 @@ public class FirstPersonController : MonoBehaviour
 
     private void LookAround()
     {
-        // Get mouse input
+        if (inventoryManager != null && !inventoryManager.IsInventoryOpen())
+        {
+         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -54,6 +61,8 @@ public class FirstPersonController : MonoBehaviour
         // Apply the rotations
         playerCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
         transform.Rotate(Vector3.up * mouseX); // Rotate the player object around the Y axis
+        }
+
     }
 
     private void HandleMovement()
